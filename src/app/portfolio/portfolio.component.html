@@ -1,0 +1,27 @@
+
+<div class="text-center mt-4">
+    <h2 class="text-uppercase mb-3 fs-1 fw-bolder" style="color: #2c3e50;">portfolio component</h2>
+    <div class="d-flex justify-content-center align-items-center">
+        <div class="line me-3"></div>
+        <i class="fa-solid fa-star " style="color: #2c3e50;"></i>
+        <div class="line ms-3"></div>
+    </div>
+</div>
+<div class="container">
+    <div class="row gx-5 my-4">
+        <div class="col-md-4 mb-5"  *ngFor="let source of sources; let i=index">
+            <div (click)="showImgOver(source.src)" class="rounded-3 overflow-hidden position-relative  background ">
+                <img [src]="source.src" class="w-100    rounded-3" alt="" >
+                <div class="Layer position-absolute rounded-3 d-flex justify-content-center align-items-center">
+                    <i class="fa-solid fa-plus fslarge" style="color: #ffffff;"></i>
+                </div>
+            </div>
+        </div>
+       
+
+    </div>
+</div>
+
+<div *ngIf="showOver"  (click)="endShow()" class="position-fixed displayphoto d-flex justify-content-center align-items-center">
+    <img [src]="overSrc" (click)="$event.stopPropagation()" class="w-50" alt="">
+</div>
